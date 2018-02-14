@@ -11,7 +11,7 @@
 其它功能：<br/>
 分组验证、验证方式、提示信息设置、Ajax异步验证
 <br/><br/>
-演示地址：http://weisha100.cn/Utility/Verify/index.htm
+演示地址：http://weishakeji.net/Utility/Verify/Index.htm
  
 # 版权声明
 Verify.js表单录入验证控件，遵照 MIT开源协议。<br/>
