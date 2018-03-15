@@ -45,14 +45,14 @@
         */</div>
     <fieldset>
         <legend>验证控件使用示例</legend>
-        <form onsubmit="alert('验证成功');return false;">
+        <form onsubmit="alert('验证成功');return false;"  place="right" >
         <p>
             账号：
             <input name="" type="text" nullable="false" datatype="user" />
         </p>
         <p>
             姓名：
-            <input name="" type="text" size="6" datatype="chinese" lenlimit="2-4" alt="限2至4个中文字/符"><span>（限中文）</span>
+            <input name="" type="text" size="6" datatype="chinese" lenlimit="2-4" alt="限2至4个中文字符"><span>（限中文）</span>
         </p>
         <p>
             年龄：
