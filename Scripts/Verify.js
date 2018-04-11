@@ -73,7 +73,7 @@
                 verify.operateSingle(null, $(this));
             });
             //当鼠标点击，或录入时，清除提示框
-            $(window).bind("mousedown keydown", function () {
+            $(window).bind("mousedown keydown scroll onmousewheel", function () {
                 $(".VerifyShowBox").remove();
             });
         },
