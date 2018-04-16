@@ -23,3 +23,4 @@ Verify.js表单录入验证控件，遵照 MIT开源协议。<br/>
 当然......我知道你们可能不会这么做!<br/>
 那就加个微信吧！^_^<br/>
 微信公众号:weishakeji
+![image](https://github.com/weishakeji/Verify_Js/blob/master/Images/qr.png)
