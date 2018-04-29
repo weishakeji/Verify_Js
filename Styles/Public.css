@@ -29,7 +29,8 @@ h3{
 	text-indent: 1em;
 }
 input{
-	height:18px;
+	height: 26px;
+	line-height: 26px;
 }
 .desc {
 	margin-left: 20px;

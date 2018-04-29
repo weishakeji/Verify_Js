@@ -13,12 +13,14 @@
  */
 (function () {
     var verify = {
-        version:"1.4",  //版本号
+        version:"1.5",  //版本号
         //默认属性值
         attr:{
             place:"bottom",     //提示信息显示位置，默认为下方，可以设置right
             backgroundcolor:"#FF3300",     //背景色
-            foregroundcolor:"#FFFFFF"      //前景色
+            foregroundcolor:"#FFFFFF",      //前景色
+            showheight:25,        //提示框的高度
+            showsize:13        //提示框字体大小
         },
         //验证的错误提示
         errmsg:{
@@ -152,11 +154,14 @@
             var place=verify.getAttr(control,"place",verify.attr.place);    //显示位置，默认在下方         
             var bgcolor=verify.getAttr(control,"bgcolor",verify.attr.backgroundcolor);  //背景色            
             var fgcolor=verify.getAttr(control,"fgcolor",verify.attr.foregroundcolor);  //前景色
-            box.css({ "position": "absolute", "z-index": 5000, "height": 30, "width": "auto" });
+            var showheight=Number(verify.getAttr(control,"showheight",verify.attr.showheight));  //提示信息高度
+            showheight=(place=="left"|| place=="right")&& showheight==verify.attr.showheight ? control.outerHeight() : showheight;
+            var size=Number(verify.getAttr(control,"showsize",verify.attr.showsize));  //提示信息字体大小
+            box.css({ "position": "absolute", "z-index": 5000, "height": showheight, "width": "auto" });
             //错误提示文本
             box.find(".errorShow").css({"white-space": "nowrap","width": "auto",
-                "font-size": "13px", "line-height": "25px", "text-indent": "10px", "height": "25px",
-                "background-color": bgcolor, "color": fgcolor, "border-radius": "2px","padding-right": "10px",
+                "font-size": size, "line-height": showheight+"px", "text-indent": "10px", "height": showheight,
+                "background-color": bgcolor, "color": fgcolor, "border-radius": "2px","padding-right": "10px"
             });
             var offset = control.offset();
             var left=0,top=0;
@@ -164,13 +169,13 @@
             box.find(".arrow-up").css({ "width": "0px", "height": "0px", "font-size": "0px", "line-height": "0px"});
             if(place=="left"){
                 box.find(".arrow-up").insertAfter(box.find(".errorShow")).css({"border-top": "5px solid transparent", "border-left": "5px solid "+bgcolor,
-                    "border-bottom": "5px solid transparent", "margin-top": "-17px","margin-right": "-5px","float": "right" });
+                    "border-bottom": "5px solid transparent", "margin-top": -showheight/2-5,"margin-right": "-5px","float": "right" });
                 left=offset.left -box.width() - 15;
                 top=offset.top -1;
             }
             if(place=="right"){
                 box.find(".arrow-up").css({"border-top": "5px solid transparent", "border-right": "5px solid "+bgcolor,
-                    "border-bottom": "5px solid transparent", "margin-top": "7px","float": "left" });
+                    "border-bottom": "5px solid transparent", "margin-top": showheight/2-5,"float": "left" });
                 left=offset.left +control.width() + 5;
                 top=offset.top -1;
                 box.find(".errorShow").css("float", "left");
