@@ -24,7 +24,7 @@
         },
         //验证的错误提示
         errmsg:{
-            nullable:{def:"不能为空"},
+            nullable:{def:"不能为空",msg1:"请选择",msg2:"该项必须选中"},
             lenlimit:{def:"限制{0}字符",msg1:"超出{0}个字符",msg2:"请录入{0}-{1}个字符"},
             numlimit:{def:"请输入数字",msg1:"请输入小于等于{0}的数字",msg2:"请录入{0}-{1}之间的数字",msg3:"只能录入{0}"},
             sametarget:{def:"两次输入不相同"},
@@ -200,7 +200,7 @@
         },
         //基本等同showBox，供外部调用，会强制显示showTxt，忽悠控件的alt属性
         ShowBox: function (control, showTxt) {
-            verify.showBox(control, showTxt,true);
+            return verify.showBox(control, showTxt,true);
         },
         //格式化字符串
         format:function(str,args){
@@ -230,6 +230,16 @@
             //attrval:验证属性的值
             //input:用户录入的值
             nullable:function(control, attrval, input){
+                var name = control.get(0).tagName.toLowerCase();
+                var type=control.attr("type");
+                //选择框
+                if (name == "select") {
+                    return attrval == "false" && (input == "" || input == control.attr("deftxt")) ? verify.showBox(control, verify.errmsg.nullable.msg1) : true;
+                }
+                //复选框
+                if (name == "input"  && type=="checkbox") {
+                    return control.is(':checked') ? true : verify.showBox(control, verify.errmsg.nullable.msg2);
+                }
                 return attrval == "false" && (input == "" || input == control.attr("deftxt")) ? verify.showBox(control, verify.errmsg.nullable.def) : true;
             },
             //长度区间

@@ -19,8 +19,8 @@
 <div class="desc">
   <fieldset>
     <legend>单行录入框</legend>
-    <pre>&lt;form onsubmit=&quot;alert('验证成功');return false;&quot;&gt;<br />      &lt;p&gt; 账号1：<br />        &lt;input name=&quot;&quot; type=&quot;text&quot; <strong>nullable=&quot;false&quot;</strong> datatype=&quot;user&quot;/&gt;<br />      &lt;/p&gt;<br />      &lt;p&gt; 账号2：<br />        &lt;input name=&quot;&quot; type=&quot;text&quot; <strong>nullable=&quot;false&quot; star=&quot;false&quot;</strong>/&gt;（star=&quot;false&quot;不显示星号）<br />      &lt;/p&gt;<br />      &lt;p&gt;<br />        &lt;input type=&quot;submit&quot; name=&quot;button&quot; class=&quot;button&quot; value=&quot;验证表单&quot; verify=&quot;true&quot;/&gt;<br />      &lt;/p&gt;<br />    &lt;/form&gt;</pre>
-    <form onsubmit="alert('验证成功');return false;">
+    <pre>&lt;form onsubmit=&quot;alert('验证成功');return false;&quot; place=&quot;right&quot;&gt;<br />      &lt;p&gt; 账号1：<br />        &lt;input name=&quot;&quot; type=&quot;text&quot; <strong>nullable=&quot;false&quot;</strong> datatype=&quot;user&quot;/&gt;<br />      &lt;/p&gt;<br />      &lt;p&gt; 账号2：<br />        &lt;input name=&quot;&quot; type=&quot;text&quot; <strong>nullable=&quot;false&quot; star=&quot;false&quot;</strong>/&gt;（star=&quot;false&quot;不显示星号）<br />      &lt;/p&gt;<br />      &lt;p&gt;<br />        &lt;input type=&quot;submit&quot; name=&quot;button&quot; class=&quot;button&quot; value=&quot;验证表单&quot; verify=&quot;true&quot;/&gt;<br />      &lt;/p&gt;<br />    &lt;/form&gt;</pre>
+    <form onsubmit="alert('验证成功');return false;" place="right">
       <p> 账号1：
         <input name="" type="text" nullable="false" datatype="user"/>
       </p>
@@ -38,11 +38,11 @@
     <legend>多行录入框</legend>
     <pre>
  &lt;form onsubmit=&quot;alert('验证成功');return false;&quot;&gt;<br />    &lt;p&gt; 账号：<br />      &lt;textarea name=&quot;&quot; rows=&quot;3&quot;
-        <strong>nullable=&quot;false&quot;</strong> datatype=&quot;user&quot;&gt;&lt;/textarea&gt;<br />    &lt;/p&gt;<br />    &lt;p&gt;<br />      &lt;input type=&quot;submit&quot; name=&quot;button&quot; 
+        <strong>nullable=&quot;false&quot;</strong> datatype=&quot;user&quot; place=&quot;right&quot; showheight=&quot;30&quot;&gt;&lt;/textarea&gt;<br />    &lt;/p&gt;<br />    &lt;p&gt;<br />      &lt;input type=&quot;submit&quot; name=&quot;button&quot; 
       class=&quot;button&quot; value=&quot;验证表单&quot; verify=&quot;true&quot;/&gt;<br />    &lt;/p&gt;<br />  &lt;/form&gt;</pre>
     <form onsubmit="alert('验证成功');return false;">
       <p> 账号：
-        <textarea name="" rows="3" nullable="false" datatype="user"></textarea>
+        <textarea name="" rows="3" nullable="false" datatype="user" place="right" showheight="30"></textarea>
       </p>
       <p>
         <input type="submit" name="button" class="button" value="验证表单" verify="true"/>
@@ -103,6 +103,22 @@
       <p>上传文件：
       <input name="" type="file" fileallow="jpg|png" nullable="false"  class="fileinput"/>
     </p>
+      <p>
+        <input type="submit" name="button" class="button" value="验证表单" verify="true"/>
+      </p>
+    </form>
+  </fieldset>
+</div>
+<h3>4、复选框的验证</h3>
+<div class="desc">
+  <fieldset>
+    <legend></legend>
+    <pre>&lt;form onsubmit=&quot;alert('验证成功');return false;&quot;&gt;<br />      &lt;p&gt;上传文件：<br />      &lt;input name=&quot;&quot; type=&quot;file&quot; fileallow=&quot;jpg|png&quot; nullable=&quot;false&quot;  class=&quot;fileinput&quot;/&gt;<br />    &lt;/p&gt;<br />      &lt;p&gt;<br />        &lt;input type=&quot;submit&quot; name=&quot;button&quot; class=&quot;button&quot; value=&quot;验证表单&quot; verify=&quot;true&quot;/&gt;<br />      &lt;/p&gt;<br />    &lt;/form&gt;</pre>
+    <form onsubmit="alert('验证成功');return false;">
+     <label>
+            <input name="cbAgree" type="checkbox"  nullable="false"/>
+            我同意<span>《平台使用协议》</span> </label>
+
       <p>
         <input type="submit" name="button" class="button" value="验证表单" verify="true"/>
       </p>

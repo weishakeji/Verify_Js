@@ -173,14 +173,24 @@ a:hover{
 	position: fixed;
 	top: 80px;
 	right: 35px;
-	width: 230px;
-	height: 250px;
+	width: 250px;
+	height: 370px;
 	line-height: 30px;
 	z-index: 30;
 	_position: absolute;
 	background-color: #CCC;
 	border: thin outset #FFF;
-	padding: 10px;
+}
+.right-tit{
+	line-height: 50px;
+	background-color: #666;
+	height: 50px;
+	font-size: 16px;
+	text-indent: 20px;
+	color: #FFF;
+}
+.right-cont{
+	padding:10px;
 }
 #rightFloat h1 {
 	margin: 0px;
@@ -189,7 +199,7 @@ a:hover{
 
 #adbox {
 	position: fixed;
-	top: 360px;
+	top: 460px;
 	right: 35px;
 	width: 230px;
 	height: 30px;
