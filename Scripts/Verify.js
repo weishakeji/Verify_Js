@@ -54,19 +54,25 @@
         //element:页面元素（jquery对象），如果为空，则为全局
         init: function (element) {
             var star = "<span style=\"color:red\">*</span>";
-            if (element == null) element = $("body");
-            element.find("*[nullable='false'],select[novalue='-1']").each(function () {
-                var isstar=verify.getAttr($(this),"star","true");
-                if (isstar=="true") $(this).after(star);
+            if (element == null) element = document;
+            element.querySelectorAll("*[nullable='false'],select[novalue='-1']").forEach(function (item) {
+                var isstar=verify.getAttr($(item),"star","true");
+                if (isstar=="true") item.outerHTML +=star;
+            });
+            element.querySelectorAll("*[verify='true']").forEach(function(item){
+                item.addEventListener("click",function(e){
+                    if($(e).attr("disabled"))return;     //如果按钮是禁用的，则不验证
+                    var group = $(e).attr("group");  //按钮的验证组，识标码
+                    var form=$(e).parents("form");
+                    form=form.size()>0 ? form : $("body");
+                    var ret=verify.IsPass(form,group);
+                    if(!ret)e.preventDefault();
+                },false);
             });
             //提交按钮的事件
-            $("*[verify='true']").click(function () {
-                if($(this).attr("disabled"))return;     //如果按钮是禁用的，则不验证
-                var group = $(this).attr("group");  //按钮的验证组，识标码  
-                var form=$(this).parents("form");
-                form=form.size()>0 ? form : $("body");
-                return verify.IsPass(form,group);
-            });
+            //$("*[verify='true']").click(function () {
+
+            //});
             //失去焦点时的事件
             $("form[patter=focus] *[type!=submit][type!=button][type!=image]:visible").focusout(function () {
                 verify.operateSingle(null, $(this));
