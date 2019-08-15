@@ -157,7 +157,7 @@
             var html = "<div name=\"" + control.attr("name") + "\" group=\"" + control.attr("group") + "\" class=\"VerifyShowBox\" style=\"display:none\">";
             html += "<div class=\"arrow-up\"> </div><div class=\"errorShow\">" + showTxt + " </div></div>";
             $("body").prepend(html);
-            var box = $(".VerifyShowBox[name=" + control.attr("name") + "]");
+            var box = $(".VerifyShowBox[name='" + control.attr("name") + "']");
             var place = verify.getAttr(control, "place", verify.attr.place);    //显示位置，默认在下方         
             var bgcolor = verify.getAttr(control, "bgcolor", verify.attr.backgroundcolor);  //背景色            
             var fgcolor = verify.getAttr(control, "fgcolor", verify.attr.foregroundcolor);  //前景色
